@@ -19,51 +19,6 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <!-- CSS here -->
     <style>
-        /* Preloader Base */
-        #arham_preloader {
-            position: fixed;
-            inset: 0;
-            background-color: #000;
-            /* Black background */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
-
-        /* Fade out & hide */
-        #arham_preloader.arham_preloader-hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        /* Completely remove after fade */
-        #arham_preloader.arham_preloader-removed {
-            display: none;
-        }
-
-        /* Logo (wheel) animation */
-        .arham_preloader-logo img {
-            width: 120px;
-            height: auto;
-            animation: arham_spin 1.5s linear infinite;
-        }
-
-        /* Spin animation */
-        @keyframes arham_spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Preloader End here */
         /* Gap between */
         @media (min-width: 1024px) and (max-width: 1365px) {
             .tp-porfolio-10-title-wrap.z-index-5 {
@@ -942,11 +897,39 @@
     <!-- End magic cursor -->
 
     <!-- Preloader Start -->
-    <div id="arham_preloader">
-        <div class="arham_preloader-logo">
-            <img src="assets/img/logo/favicon.png" alt="Logo" />
+    <div class="arham_preloader"
+        style="width:100%;height:100%;position:fixed;left:0;top:0;z-index:9999;background:#000;display:flex;align-items:center;justify-content:center;flex-direction:column;">
+
+        <!-- Loader GIF -->
+        <div style="
+        width:100px;
+        height:100px;
+        background:url('assets/img/logo/loader.gif') center no-repeat;
+        background-size:80px 80px;
+        margin-bottom:20px;">
+        </div>
+        <!-- Text -->
+        <div style="margin-top:20px;color:#fff;font-size:14px;font-family:Arial;">
+            Please Wait...
         </div>
     </div>
+
+    <style>
+        @keyframes arham_loadbar {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            50% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+
     <!-- Preloader End -->
 
     <div class="tp-blur-bottom"></div>
@@ -3279,26 +3262,15 @@
 
 
     <!-- JS here -->
-    <!-- jQuery (needed for preloader) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Preloader JS -->
     <script>
-        (function ($) {
-            "use strict";
-
-            $(window).on("load", function () {
-                // Fade out smoothly
-                $("#arham_preloader").addClass("arham_preloader-hidden");
-
-                // Remove completely after fade
-                setTimeout(() => {
-                    $("#arham_preloader").addClass("arham_preloader-removed");
-                }, 800);
-            });
-
-        })(jQuery);
+        window.onload = function () {
+            document.querySelector('.arham_preloader').style.display = 'none';
+        };
     </script>
+
     <!-- PReloader JS End -->
     <script src="assets/js/vendor/jquery.js"></script>
     <script src="assets/js/bootstrap-bundle.js"></script>
