@@ -3888,7 +3888,10 @@ body.tp-magic-cursor #magic-cursor {
   list-style-type: none;
 }
 .hr-side-header-menu > nav > ul > li a {
-  font-size: 16px;
+  /*font-size: 16px;*/
+  /*umer css start*/
+  font-size: 14px;
+   /*umer css end*/
   font-weight: 700;
   line-height: 1.2;
   display: block;
